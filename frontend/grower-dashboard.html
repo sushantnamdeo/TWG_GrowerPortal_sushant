@@ -13,24 +13,26 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
+            background-color: #f0f2f5;
+            color: #1a1a1a;
         }
 
-        /* Header */
+        /* Header - Navy Blue & Gold */
         header {
-            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            background: linear-gradient(135deg, #001f3f 0%, #003d7a 100%);
             color: white;
             padding: 15px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 31, 63, 0.3);
+            border-bottom: 3px solid #d4af37;
         }
 
         header h1 {
             font-size: 24px;
             font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         .header-right {
@@ -41,11 +43,13 @@
 
         .user-info {
             font-size: 14px;
+            text-align: right;
         }
 
         .user-info strong {
             display: block;
             margin-bottom: 2px;
+            color: #d4af37;
         }
 
         .header-buttons {
@@ -64,22 +68,23 @@
         }
 
         .btn-secondary {
-            background-color: rgba(255,255,255,0.2);
-            color: white;
-            border: 1px solid white;
+            background-color: rgba(212, 175, 55, 0.2);
+            color: #d4af37;
+            border: 1px solid #d4af37;
         }
 
         .btn-secondary:hover {
-            background-color: rgba(255,255,255,0.3);
+            background-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
         }
 
         .btn-logout {
-            background-color: #d9534f;
+            background-color: #c9302c;
             color: white;
         }
 
         .btn-logout:hover {
-            background-color: #c9302c;
+            background-color: #ac2925;
         }
 
         /* Main Container */
@@ -95,20 +100,23 @@
             padding: 20px;
             border-radius: 6px;
             margin-bottom: 25px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0, 31, 63, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-left: 5px solid #d4af37;
         }
 
         .harvest-year {
             font-size: 18px;
             font-weight: 600;
+            color: #001f3f;
         }
 
         .harvest-year span {
-            color: #8B4513;
+            color: #d4af37;
             font-size: 24px;
+            font-weight: 700;
         }
 
         /* Grower Selector */
@@ -117,7 +125,8 @@
             padding: 20px;
             border-radius: 6px;
             margin-bottom: 25px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0, 31, 63, 0.1);
+            border-top: 3px solid #001f3f;
         }
 
         .selector-section label {
@@ -125,6 +134,7 @@
             font-weight: 600;
             margin-bottom: 8px;
             font-size: 14px;
+            color: #001f3f;
         }
 
         .selector-wrapper {
@@ -135,17 +145,31 @@
         select {
             flex: 1;
             padding: 10px;
-            border: 1px solid #ddd;
+            border: 2px solid #e0e0e0;
             border-radius: 4px;
             font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
         }
 
         .search-box {
             flex: 1;
             padding: 10px;
-            border: 1px solid #ddd;
+            border: 2px solid #e0e0e0;
             border-radius: 4px;
             font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
         }
 
         /* Action Buttons */
@@ -156,34 +180,32 @@
         }
 
         .btn-primary {
-            background-color: #8B4513;
+            background: linear-gradient(135deg, #001f3f 0%, #003d7a 100%);
             color: white;
-            padding: 10px 20px;
+            padding: 12px 20px;
             flex: 1;
+            border: 2px solid #001f3f;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         .btn-primary:hover {
-            background-color: #6B3410;
+            background: linear-gradient(135deg, #003d7a 0%, #005fa3 100%);
+            box-shadow: 0 4px 12px rgba(0, 31, 63, 0.3);
+            transform: translateY(-2px);
         }
 
         .btn-success {
-            background-color: #5cb85c;
+            background-color: #28a745;
             color: white;
-            padding: 10px 20px;
+            padding: 12px 20px;
+            font-weight: 600;
         }
 
         .btn-success:hover {
-            background-color: #4cae4c;
-        }
-
-        .btn-info {
-            background-color: #5bc0de;
-            color: white;
-            padding: 10px 20px;
-        }
-
-        .btn-info:hover {
-            background-color: #46b8da;
+            background-color: #218838;
+            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+            transform: translateY(-2px);
         }
 
         /* Grid Section */
@@ -191,7 +213,8 @@
             background: white;
             padding: 20px;
             border-radius: 6px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0, 31, 63, 0.1);
+            border-top: 4px solid #d4af37;
         }
 
         .grid-header {
@@ -204,6 +227,7 @@
         .grid-header h2 {
             font-size: 18px;
             font-weight: 600;
+            color: #001f3f;
         }
 
         .grid-controls {
@@ -213,9 +237,15 @@
 
         .search-filter {
             padding: 8px 12px;
-            border: 1px solid #ddd;
+            border: 2px solid #e0e0e0;
             border-radius: 4px;
             font-size: 13px;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-filter:focus {
+            outline: none;
+            border-color: #d4af37;
         }
 
         /* Table */
@@ -226,8 +256,9 @@
         }
 
         thead {
-            background-color: #f9f9f9;
-            border-bottom: 2px solid #ddd;
+            background: linear-gradient(135deg, #001f3f 0%, #003d7a 100%);
+            color: white;
+            border-bottom: 2px solid #d4af37;
         }
 
         th {
@@ -235,8 +266,8 @@
             text-align: left;
             font-weight: 600;
             font-size: 13px;
-            color: #666;
             position: relative;
+            letter-spacing: 0.3px;
         }
 
         th::after {
@@ -245,66 +276,74 @@
             right: 5px;
             font-size: 12px;
             cursor: pointer;
-            opacity: 0.5;
+            opacity: 0.7;
         }
 
         td {
             padding: 12px;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #f0f0f0;
             font-size: 14px;
         }
 
         tbody tr:hover {
             background-color: #f9f9f9;
+            border-left: 3px solid #d4af37;
         }
 
         .status-badge {
             display: inline-block;
-            padding: 4px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
             font-size: 12px;
             font-weight: 600;
+            letter-spacing: 0.3px;
         }
 
         .badge-verified {
             background-color: #d4edda;
             color: #155724;
+            border-left: 3px solid #28a745;
         }
 
         .badge-pending {
-            background-color: #fff3cd;
+            background: linear-gradient(135deg, #fff3cd 0%, #ffe6a0 100%);
             color: #856404;
+            border-left: 3px solid #d4af37;
         }
 
         .badge-non-sustainable {
             background-color: #f8d7da;
             color: #721c24;
-        }
-
-        .badge-rejected {
-            background-color: #f8d7da;
-            color: #721c24;
+            border-left: 3px solid #c9302c;
         }
 
         .link-action {
-            color: #8B4513;
+            color: #001f3f;
             text-decoration: none;
             cursor: pointer;
-            font-weight: 500;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
 
         .link-action:hover {
+            color: #d4af37;
             text-decoration: underline;
         }
 
         .check-icon {
-            color: #5cb85c;
+            color: #28a745;
             font-weight: bold;
+            font-size: 16px;
         }
 
         .document-icon {
             cursor: pointer;
             font-size: 18px;
+            transition: transform 0.2s ease;
+        }
+
+        .document-icon:hover {
+            transform: scale(1.2);
         }
 
         /* Modal */
@@ -316,7 +355,7 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.4);
+            background-color: rgba(0, 31, 63, 0.5);
         }
 
         .modal.show {
@@ -331,7 +370,8 @@
             border-radius: 6px;
             width: 90%;
             max-width: 600px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 30px rgba(0, 31, 63, 0.3);
+            border-top: 4px solid #d4af37;
         }
 
         .modal-header {
@@ -339,12 +379,14 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
-            border-bottom: 1px solid #eee;
+            border-bottom: 2px solid #f0f0f0;
             padding-bottom: 15px;
         }
 
         .modal-header h2 {
             font-size: 20px;
+            color: #001f3f;
+            font-weight: 600;
         }
 
         .close-btn {
@@ -355,10 +397,11 @@
             background: none;
             border: none;
             padding: 0;
+            transition: color 0.3s ease;
         }
 
         .close-btn:hover {
-            color: #000;
+            color: #d4af37;
         }
 
         .modal-body {
@@ -374,6 +417,7 @@
             margin-bottom: 5px;
             font-weight: 600;
             font-size: 14px;
+            color: #001f3f;
         }
 
         .form-group input,
@@ -381,10 +425,19 @@
         .form-group textarea {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ddd;
+            border: 2px solid #e0e0e0;
             border-radius: 4px;
             font-size: 14px;
             font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
         }
 
         .form-group textarea {
@@ -401,6 +454,7 @@
         .btn-cancel {
             background-color: #6c757d;
             color: white;
+            padding: 10px 30px;
         }
 
         .btn-cancel:hover {
@@ -409,7 +463,7 @@
 
         .required::after {
             content: " *";
-            color: red;
+            color: #c9302c;
         }
 
         /* Responsive */
@@ -417,27 +471,21 @@
             .container {
                 padding: 15px;
             }
-
             .action-buttons {
                 flex-direction: column;
             }
-
-            table {
-                font-size: 12px;
-            }
-
-            td, th {
-                padding: 8px;
-            }
-
+            table { font-size: 12px; }
+            td, th { padding: 8px; }
             header {
                 flex-direction: column;
                 gap: 10px;
                 text-align: center;
             }
-
-            .selector-wrapper {
+            .selector-wrapper { flex-direction: column; }
+            .info-section {
                 flex-direction: column;
+                gap: 10px;
+                text-align: center;
             }
         }
 
@@ -448,13 +496,16 @@
             border-radius: 6px;
             width: 90%;
             max-width: 500px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 30px rgba(0, 31, 63, 0.3);
             text-align: center;
+            border-top: 4px solid #d4af37;
         }
 
         .confirmation-dialog h3 {
             margin-bottom: 15px;
             font-size: 18px;
+            color: #001f3f;
+            font-weight: 600;
         }
 
         .confirmation-dialog p {
@@ -464,16 +515,18 @@
         }
 
         .block-list {
-            background-color: #f9f9f9;
+            background: linear-gradient(135deg, #f9f9f9 0%, #f0f0f0 100%);
             padding: 15px;
             border-radius: 4px;
             margin: 15px 0;
             text-align: left;
+            border-left: 4px solid #d4af37;
         }
 
         .block-list li {
             margin-bottom: 8px;
             list-style-position: inside;
+            color: #333;
         }
 
         .confirmation-buttons {
@@ -484,26 +537,36 @@
         }
 
         .btn-confirm {
-            background-color: #28a745;
+            background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
             color: white;
             padding: 10px 30px;
+            font-weight: 600;
         }
 
         .btn-confirm:hover {
-            background-color: #218838;
+            background: linear-gradient(135deg, #1e7e34 0%, #155724 100%);
+            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
         }
 
         .success-message {
-            background-color: #d4edda;
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
             color: #155724;
             padding: 15px;
             border-radius: 4px;
             margin-bottom: 15px;
             display: none;
+            border-left: 4px solid #28a745;
+            font-weight: 500;
         }
 
         .success-message.show {
             display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -517,7 +580,7 @@
                 <span id="userEmail">penny.cynthia@gmail.com</span>
             </div>
             <div class="header-buttons">
-                <button class="btn-secondary">Help</button>
+                <button class="btn-secondary">❓ Help</button>
                 <button class="btn-logout" onclick="logout()">Logout</button>
             </div>
         </div>
@@ -525,17 +588,14 @@
 
     <!-- Main Container -->
     <div class="container">
-        <!-- Success Message -->
         <div class="success-message" id="successMessage"></div>
 
-        <!-- Info Section -->
         <div class="info-section">
             <div class="harvest-year">
                 Current Harvest Year: <span>2026</span>
             </div>
         </div>
 
-        <!-- Grower Selector -->
         <div class="selector-section">
             <label for="growerSelect" class="required">Select Grower</label>
             <div class="selector-wrapper">
@@ -544,32 +604,22 @@
                     <option value="LDC001">LDC001 - LDC VINEYARDS</option>
                     <option value="LTR001">LTR001 - JJB FARMS</option>
                     <option value="KAU001">KAU001 - KAUTZ FARMS</option>
-                    <option value="KZN001">KZN001 - DAVID KAZANJIAN</option>
-                    <option value="UHF009">UHF009 - UHF VINEYARD</option>
                 </select>
-                <input type="text" class="search-box" placeholder="Search growers by code or name...">
+                <input type="text" class="search-box" placeholder="🔍 Search growers...">
             </div>
         </div>
 
-        <!-- Action Buttons -->
         <div class="action-buttons">
-            <button class="btn-primary" onclick="declareSustainable()">🌿 Declare Blocks as Sustainable</button>
-            <button class="btn-primary" onclick="declareNonSustainable()">⚠️ Declare Blocks as Non Sustainable</button>
+            <button class="btn-primary" onclick="declareSustainable()">🌿 Declare Sustainable</button>
+            <button class="btn-primary" onclick="declareNonSustainable()">⚠️ Non Sustainable</button>
             <button class="btn-success" onclick="openUploadModal()">📤 Upload Document</button>
         </div>
 
-        <!-- Harvest Records Grid -->
         <div class="grid-section">
             <div class="grid-header">
-                <h2>Harvest Records</h2>
+                <h2>📋 Harvest Records</h2>
                 <div class="grid-controls">
-                    <input type="text" class="search-filter" placeholder="Search...">
-                    <select class="search-filter">
-                        <option value="">All Status</option>
-                        <option value="pending">Pending</option>
-                        <option value="verified">Verified</option>
-                        <option value="rejected">Rejected</option>
-                    </select>
+                    <input type="text" class="search-filter" placeholder="🔍 Search...">
                 </div>
             </div>
 
@@ -579,107 +629,71 @@
                         <th>Block</th>
                         <th>Variety</th>
                         <th>Tons</th>
-                        <th>District</th>
                         <th>Certificate Status</th>
                         <th>PUR Status</th>
                         <th>Agency</th>
-                        <th>Links</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>P-5235</td>
+                        <td><strong>P-5235</strong></td>
                         <td>PIG (Pinot Grigio)</td>
                         <td>1,080</td>
-                        <td>12</td>
                         <td><span class="status-badge badge-verified">✓ Verified</span></td>
                         <td><span class="status-badge badge-verified">✓ Verified</span></td>
                         <td>CSWA</td>
-                        <td>
-                            <span class="link-action check-icon">✓</span>
-                            <span class="link-action check-icon">✓</span>
-                        </td>
                     </tr>
                     <tr>
-                        <td>P-6374</td>
+                        <td><strong>P-6374</strong></td>
                         <td>SAB (Sauvignon Blanc)</td>
                         <td>1,200</td>
-                        <td>11</td>
                         <td><span class="status-badge badge-pending">⏳ Pending Upload</span></td>
                         <td><span class="status-badge badge-verified">✓ Verified</span></td>
                         <td>LR</td>
-                        <td>
-                            <span class="document-icon" onclick="alert('Upload certificate')">📄</span>
-                            <span class="link-action check-icon">✓</span>
-                        </td>
                     </tr>
                     <tr>
-                        <td>P-6375</td>
+                        <td><strong>P-6375</strong></td>
                         <td>CAS (Cabernet Sauvignon)</td>
                         <td>1,200</td>
-                        <td>11</td>
                         <td><span class="status-badge badge-non-sustainable">✗ Non Sustainable</span></td>
                         <td><span class="status-badge badge-pending">⏳ Pending Upload</span></td>
-                        <td>-</td>
-                        <td>
-                            <span class="document-icon" onclick="alert('Upload PUR')">📄</span>
-                            <span class="document-icon" onclick="alert('Upload PUR')">📄</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>P-4594</td>
-                        <td>FRC (French Colombard)</td>
-                        <td>250</td>
-                        <td>13</td>
-                        <td><span class="status-badge badge-pending">⏳ Pending Declaration</span></td>
-                        <td><span class="status-badge badge-pending">⏳ Pending Upload</span></td>
-                        <td>-</td>
-                        <td>
-                            <span class="document-icon" onclick="alert('No documents yet')">-</span>
-                        </td>
+                        <td>—</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <!-- Upload Document Modal -->
+    <!-- Modals (Upload, Declare, Confirmation) -->
     <div class="modal" id="uploadModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Upload Document</h2>
+                <h2>📤 Upload Document</h2>
                 <button class="close-btn" onclick="closeUploadModal()">×</button>
             </div>
             <div class="modal-body">
                 <div class="form-group">
                     <label class="required">Document Type</label>
                     <div style="display: flex; gap: 20px; margin-top: 10px;">
-                        <label style="display: flex; align-items: center; font-weight: normal;">
-                            <input type="radio" name="docType" value="certificate" checked> Certificate
+                        <label style="display: flex; align-items: center; font-weight: normal; cursor: pointer;">
+                            <input type="radio" name="docType" value="certificate" checked style="margin-right: 8px;"> Certificate
                         </label>
-                        <label style="display: flex; align-items: center; font-weight: normal;">
-                            <input type="radio" name="docType" value="pur"> PUR Document
+                        <label style="display: flex; align-items: center; font-weight: normal; cursor: pointer;">
+                            <input type="radio" name="docType" value="pur" style="margin-right: 8px;"> PUR Document
                         </label>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label for="blockSelect" class="required">Select Block</label>
                     <select id="blockSelect">
                         <option value="">-- Select a block --</option>
-                        <option value="P-5235">P-5235 (PIG) - Pending Upload</option>
-                        <option value="P-6374">P-6374 (SAB) - Pending Upload</option>
-                        <option value="P-6375">P-6375 (CAS) - Pending Upload</option>
-                        <option value="P-4594">P-4594 (FRC) - All Pending</option>
+                        <option value="P-5235">P-5235 (PIG)</option>
+                        <option value="P-6374">P-6374 (SAB)</option>
                     </select>
                 </div>
-
                 <div class="form-group">
                     <label for="fileInput" class="required">File Upload</label>
                     <input type="file" id="fileInput" accept=".pdf,.docx,.xlsx,.jpg,.png">
-                    <small style="color: #666; margin-top: 5px; display: block;">
-                        Max size: 50 MB | Allowed: PDF, DOCX, XLSX, JPG, PNG
-                    </small>
                 </div>
             </div>
             <div class="modal-footer">
@@ -689,11 +703,10 @@
         </div>
     </div>
 
-    <!-- Declare Sustainable Modal -->
     <div class="modal" id="declareSustainableModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Declare Blocks as Sustainable</h2>
+                <h2>🌿 Declare Sustainable</h2>
                 <button class="close-btn" onclick="closeModal('declareSustainableModal')">×</button>
             </div>
             <div class="modal-body">
@@ -701,24 +714,9 @@
                     <label for="agencySelect" class="required">Certification Agency</label>
                     <select id="agencySelect">
                         <option value="">-- Select an agency --</option>
-                        <option value="CSWA">California Sustainable Winegrowing Alliance (CSWA)</option>
-                        <option value="LR">Lodi Rules (LR)</option>
-                        <option value="NP">Napa Green (NP)</option>
-                        <option value="FFF">Fish Friendly Farming (FFF)</option>
-                        <option value="SIP">Sustainability in Practice (SIP)</option>
+                        <option value="CSWA">CSWA - California Sustainable Winegrowing Alliance</option>
+                        <option value="LR">LR - Lodi Rules</option>
                     </select>
-                </div>
-
-                <div class="form-group">
-                    <label class="required">Select Blocks (Pending Declaration Only)</label>
-                    <div style="border: 1px solid #ddd; border-radius: 4px; padding: 10px; max-height: 200px; overflow-y: auto;">
-                        <label style="display: flex; align-items: center; margin-bottom: 10px; font-weight: normal;">
-                            <input type="checkbox" name="blocks" value="P-4594"> P-4594 (FRC) - 250 tons
-                        </label>
-                    </div>
-                    <small style="color: #666; margin-top: 5px; display: block;">
-                        Selected: 1 block
-                    </small>
                 </div>
             </div>
             <div class="modal-footer">
@@ -728,44 +726,10 @@
         </div>
     </div>
 
-    <!-- Declare Non Sustainable Modal -->
-    <div class="modal" id="declareNonSustainableModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Declare Blocks as Non Sustainable</h2>
-                <button class="close-btn" onclick="closeModal('declareNonSustainableModal')">×</button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label class="required">Select Blocks (Pending Declaration Only)</label>
-                    <div style="border: 1px solid #ddd; border-radius: 4px; padding: 10px; max-height: 200px; overflow-y: auto;">
-                        <label style="display: flex; align-items: center; margin-bottom: 10px; font-weight: normal;">
-                            <input type="checkbox" name="blocks" value="P-4594"> P-4594 (FRC) - 250 tons
-                        </label>
-                    </div>
-                    <small style="color: #666; margin-top: 5px; display: block;">
-                        Selected: 1 block
-                    </small>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn-cancel" onclick="closeModal('declareNonSustainableModal')">Cancel</button>
-                <button class="btn-success" onclick="showConfirmation('non-sustainable')">Declare as Non Sustainable</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Confirmation Modal -->
     <div class="modal" id="confirmationModal">
         <div class="confirmation-dialog">
             <h3 id="confirmTitle">Confirm Declaration</h3>
-            <p id="confirmMessage">You are declaring the following blocks to be sustainable:</p>
-            <div class="block-list">
-                <ul>
-                    <li>P-4594 (FRC) - 250 tons</li>
-                </ul>
-            </div>
-            <p style="font-weight: 600; color: #c9302c;">This action cannot be undone. Are you sure?</p>
+            <p id="confirmMessage">Are you sure?</p>
             <div class="confirmation-buttons">
                 <button class="btn-cancel" onclick="closeModal('confirmationModal')">Cancel</button>
                 <button class="btn-confirm" onclick="confirmDeclaration()">Confirm</button>
@@ -774,100 +738,30 @@
     </div>
 
     <script>
-        function onGrowerChange() {
-            const grower = document.getElementById('growerSelect').value;
-            if (grower) {
-                console.log('Grower selected:', grower);
-                // In real app, this would fetch harvest records for this grower
-            }
-        }
-
-        function openUploadModal() {
-            document.getElementById('uploadModal').classList.add('show');
-        }
-
-        function closeUploadModal() {
-            document.getElementById('uploadModal').classList.remove('show');
-        }
-
-        function submitUpload() {
-            alert('Document uploaded successfully!');
-            showSuccess('Document uploaded successfully!');
-            closeUploadModal();
-        }
-
-        function declareSustainable() {
-            document.getElementById('declareSustainableModal').classList.add('show');
-        }
-
-        function declareNonSustainable() {
-            document.getElementById('declareNonSustainableModal').classList.add('show');
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.remove('show');
-        }
-
+        function onGrowerChange() { console.log('Grower changed'); }
+        function openUploadModal() { document.getElementById('uploadModal').classList.add('show'); }
+        function closeUploadModal() { document.getElementById('uploadModal').classList.remove('show'); }
+        function submitUpload() { showSuccess('Document uploaded!'); closeUploadModal(); }
+        function declareSustainable() { document.getElementById('declareSustainableModal').classList.add('show'); }
+        function declareNonSustainable() { alert('Declare Non Sustainable'); }
+        function closeModal(id) { document.getElementById(id).classList.remove('show'); }
         function showConfirmation(type) {
             const modal = document.getElementById('confirmationModal');
-            const title = document.getElementById('confirmTitle');
-            const message = document.getElementById('confirmMessage');
-            
-            if (type === 'sustainable') {
-                title.textContent = 'Confirm Sustainable Declaration';
-                message.textContent = 'You are declaring the following blocks to be sustainable for certification agency CSWA:';
-                closeModal('declareSustainableModal');
-            } else {
-                title.textContent = 'Confirm Non Sustainable Declaration';
-                message.textContent = 'You are declaring the following blocks to be non sustainable:';
-                closeModal('declareNonSustainableModal');
-            }
-            
+            closeModal('declareSustainableModal');
             modal.classList.add('show');
         }
-
-        function confirmDeclaration() {
-            alert('Declaration submitted successfully!');
-            showSuccess('Blocks declared successfully!');
-            closeModal('confirmationModal');
+        function confirmDeclaration() { showSuccess('Declaration confirmed!'); closeModal('confirmationModal'); }
+        function showSuccess(msg) {
+            const el = document.getElementById('successMessage');
+            el.textContent = '✓ ' + msg;
+            el.classList.add('show');
+            setTimeout(() => el.classList.remove('show'), 5000);
         }
-
-        function showSuccess(message) {
-            const msg = document.getElementById('successMessage');
-            msg.textContent = '✓ ' + message;
-            msg.classList.add('show');
-            setTimeout(() => {
-                msg.classList.remove('show');
-            }, 5000);
-        }
-
-        function logout() {
-            if (confirm('Are you sure you want to logout?')) {
-                window.location.href = '/login.html';
-            }
-        }
-
-        // Close modals when clicking outside
-        window.onclick = function(event) {
-            let modal = document.getElementById('uploadModal');
-            if (event.target == modal) {
-                modal.classList.remove('show');
-            }
-            
-            modal = document.getElementById('declareSustainableModal');
-            if (event.target == modal) {
-                modal.classList.remove('show');
-            }
-            
-            modal = document.getElementById('declareNonSustainableModal');
-            if (event.target == modal) {
-                modal.classList.remove('show');
-            }
-            
-            modal = document.getElementById('confirmationModal');
-            if (event.target == modal) {
-                modal.classList.remove('show');
-            }
+        function logout() { if(confirm('Logout?')) window.location.href='/login.html'; }
+        window.onclick = function(e) {
+            ['uploadModal','declareSustainableModal','confirmationModal'].forEach(id => {
+                if(e.target == document.getElementById(id)) document.getElementById(id).classList.remove('show');
+            });
         }
     </script>
 </body>
