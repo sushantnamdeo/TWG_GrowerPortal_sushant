@@ -142,34 +142,118 @@
             gap: 10px;
         }
 
-        select {
+        /* Custom Dropdown Styles */
+        .custom-dropdown {
+            position: relative;
             flex: 1;
+        }
+
+        .dropdown-header {
             padding: 10px;
             border: 2px solid #e0e0e0;
             border-radius: 4px;
-            font-size: 14px;
+            background-color: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             transition: border-color 0.3s ease;
+            font-size: 14px;
         }
 
-        select:focus {
-            outline: none;
+        .dropdown-header:hover {
+            border-color: #d4af37;
+        }
+
+        .dropdown-header.active {
             border-color: #d4af37;
             box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
         }
 
-        .search-box {
-            flex: 1;
-            padding: 10px;
-            border: 2px solid #e0e0e0;
-            border-radius: 4px;
-            font-size: 14px;
-            transition: border-color 0.3s ease;
+        .dropdown-arrow {
+            color: #001f3f;
+            font-size: 12px;
+            transition: transform 0.3s ease;
         }
 
-        .search-box:focus {
+        .dropdown-header.active .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: white;
+            border: 2px solid #d4af37;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 100;
+            box-shadow: 0 4px 8px rgba(0, 31, 63, 0.1);
+        }
+
+        .dropdown-content.show {
+            display: block;
+        }
+
+        .dropdown-search {
+            padding: 10px;
+            border-bottom: 2px solid #f0f0f0;
+            position: sticky;
+            top: 0;
+            background-color: white;
+        }
+
+        .dropdown-search input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #d4af37;
+            border-radius: 3px;
+            font-size: 13px;
+            font-family: inherit;
+        }
+
+        .dropdown-search input:focus {
             outline: none;
-            border-color: #d4af37;
-            box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+            border-color: #001f3f;
+            box-shadow: 0 0 5px rgba(0, 31, 63, 0.2);
+        }
+
+        .dropdown-item {
+            padding: 10px 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(212, 175, 55, 0.1);
+            border-left: 3px solid #d4af37;
+            padding-left: 9px;
+        }
+
+        .dropdown-item.selected {
+            background-color: rgba(0, 31, 63, 0.05);
+            color: #001f3f;
+            font-weight: 600;
+            border-left: 3px solid #d4af37;
+            padding-left: 9px;
+        }
+
+        .dropdown-item.hidden {
+            display: none;
+        }
+
+        .dropdown-empty {
+            padding: 15px;
+            text-align: center;
+            color: #999;
+            font-size: 13px;
         }
 
         /* Action Buttons */
@@ -599,13 +683,32 @@
         <div class="selector-section">
             <label for="growerSelect" class="required">Select Grower</label>
             <div class="selector-wrapper">
-                <select id="growerSelect" onchange="onGrowerChange()">
-                    <option value="">-- Select a grower --</option>
-                    <option value="LDC001">LDC001 - LDC VINEYARDS</option>
-                    <option value="LTR001">LTR001 - JJB FARMS</option>
-                    <option value="KAU001">KAU001 - KAUTZ FARMS</option>
-                </select>
-                <input type="text" class="search-box" placeholder="🔍 Search growers...">
+                <div class="custom-dropdown">
+                    <div class="dropdown-header" onclick="toggleDropdown()">
+                        <span id="selectedGrower">-- Select a grower --</span>
+                        <span class="dropdown-arrow">▼</span>
+                    </div>
+                    <div class="dropdown-content" id="dropdownContent">
+                        <div class="dropdown-search">
+                            <input type="text" id="searchInput" placeholder="🔍 Search by code or name..." onkeyup="filterDropdown()">
+                        </div>
+                        <div class="dropdown-item" onclick="selectGrower('LDC001', 'LDC001 - LDC VINEYARDS')">
+                            <strong>LDC001</strong> - LDC VINEYARDS
+                        </div>
+                        <div class="dropdown-item" onclick="selectGrower('LTR001', 'LTR001 - JJB FARMS')">
+                            <strong>LTR001</strong> - JJB FARMS
+                        </div>
+                        <div class="dropdown-item" onclick="selectGrower('KAU001', 'KAU001 - KAUTZ FARMS')">
+                            <strong>KAU001</strong> - KAUTZ FARMS
+                        </div>
+                        <div class="dropdown-item" onclick="selectGrower('KZN001', 'KZN001 - DAVID KAZANJIAN')">
+                            <strong>KZN001</strong> - DAVID KAZANJIAN
+                        </div>
+                        <div class="dropdown-item" onclick="selectGrower('UHF009', 'UHF009 - UHF VINEYARD')">
+                            <strong>UHF009</strong> - UHF VINEYARD
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -664,7 +767,7 @@
         </div>
     </div>
 
-    <!-- Modals (Upload, Declare, Confirmation) -->
+    <!-- Modals -->
     <div class="modal" id="uploadModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -738,7 +841,60 @@
     </div>
 
     <script>
-        function onGrowerChange() { console.log('Grower changed'); }
+        let selectedGrowerCode = '';
+
+        function toggleDropdown() {
+            const dropdown = document.getElementById('dropdownContent');
+            const header = document.querySelector('.dropdown-header');
+            dropdown.classList.toggle('show');
+            header.classList.toggle('active');
+        }
+
+        function selectGrower(code, name) {
+            selectedGrowerCode = code;
+            document.getElementById('selectedGrower').textContent = name;
+            document.getElementById('dropdownContent').classList.remove('show');
+            document.querySelector('.dropdown-header').classList.remove('active');
+            document.getElementById('searchInput').value = '';
+            console.log('Grower selected:', code);
+        }
+
+        function filterDropdown() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const items = document.querySelectorAll('.dropdown-item');
+            let visibleCount = 0;
+
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    item.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+
+            // Show/hide empty message
+            const emptyMsg = document.querySelector('.dropdown-empty');
+            if (visibleCount === 0 && !emptyMsg) {
+                const empty = document.createElement('div');
+                empty.className = 'dropdown-empty';
+                empty.textContent = 'No growers found';
+                document.getElementById('dropdownContent').appendChild(empty);
+            } else if (visibleCount > 0 && emptyMsg) {
+                emptyMsg.remove();
+            }
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.querySelector('.custom-dropdown');
+            if (!dropdown.contains(event.target)) {
+                document.getElementById('dropdownContent').classList.remove('show');
+                document.querySelector('.dropdown-header').classList.remove('active');
+            }
+        });
+
         function openUploadModal() { document.getElementById('uploadModal').classList.add('show'); }
         function closeUploadModal() { document.getElementById('uploadModal').classList.remove('show'); }
         function submitUpload() { showSuccess('Document uploaded!'); closeUploadModal(); }
@@ -758,11 +914,6 @@
             setTimeout(() => el.classList.remove('show'), 5000);
         }
         function logout() { if(confirm('Logout?')) window.location.href='/login.html'; }
-        window.onclick = function(e) {
-            ['uploadModal','declareSustainableModal','confirmationModal'].forEach(id => {
-                if(e.target == document.getElementById(id)) document.getElementById(id).classList.remove('show');
-            });
-        }
     </script>
 </body>
 </html>
